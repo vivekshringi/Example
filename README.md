@@ -30,11 +30,15 @@ ReadMe.md
 File Description
 
 RunCukesTest.java is having test runner configuration of cucumber
+
 Stepdefs.java-All Step definitions of test.feature are defined here 
+
 HoverPage, LoginPage, SortedPage are Pages using Page object model
+
 Test.feature - All Scenarios are mentioned in this file 
 
 How to run : 
-Maven install - It will download all project related dependencies jars and will perform all tests 
+Maven install - It will download all project related dependencies jars and will perform all tests
+ 
 Test Reports are generated in xml format
 

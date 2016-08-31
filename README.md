@@ -38,4 +38,3 @@ How to run :
 Maven install - It will download all project related dependencies jars and will perform all tests 
 Test Reports are generated in xml format
 
-"# Example" 

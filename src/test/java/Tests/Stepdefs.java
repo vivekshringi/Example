@@ -33,9 +33,8 @@ public class Stepdefs {
 
 	@Before
 	public void setUp(){
-		  FirefoxProfile profile = new FirefoxProfile();
-          profile.setEnableNativeEvents(true);
-          driver = new FirefoxDriver(profile);
+		  System.setProperty("webdriver.gecko.driver","/home/jimmy/selenium/Driver/geckodriver");
+          driver = new FirefoxDriver();
           driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
           driver.get(URL);
      	 loginPage = PageFactory.initElements(driver, LoginPage.class);

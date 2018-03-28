@@ -44,9 +44,7 @@ public class Stepdefs {
 	}
 	
 	@After
-	public void tearDown(){
-	     
-	     driver.close();   
+	public void tearDown(){  
 	     driver.quit();
 	}
 

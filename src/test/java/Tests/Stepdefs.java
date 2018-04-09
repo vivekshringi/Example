@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import cucumber.api.Scenario;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -15,6 +17,8 @@ import cucumber.api.java.After;
 import static org.junit.Assert.*;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -28,12 +32,12 @@ public class Stepdefs {
 	private LoginPage loginPage;
 	private HoverPage hoverPage;
 	private SortedPage sortedPage;
-	public static final String URL = "http://the-internet.herokuapp.com/";
+	public static final String URL = "http://the-internetdfsdf.herokuapp.com/";
 
 
 	@Before
 	public void setUp(){
-		  System.setProperty("webdriver.gecko.driver","/home/jimmy/selenium/Driver/geckodriver");
+		  System.setProperty("webdriver.gecko.driver","./Driver/geckodriver");
           driver = new FirefoxDriver();
           driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
           driver.get(URL);
@@ -44,7 +48,12 @@ public class Stepdefs {
 	}
 	
 	@After
-	public void tearDown(){  
+	public void tearDown(Scenario scenario){  
+		 if(scenario.isFailed()){
+			 final byte[] screenshot = ((TakesScreenshot) driver)
+                     .getScreenshotAs(OutputType.BYTES);
+			 scenario.embed(screenshot, "image/png");
+		 }
 	     driver.quit();
 	}
 

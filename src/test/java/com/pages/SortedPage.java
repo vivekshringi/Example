@@ -7,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 
 public class SortedPage {
-
-
 	@FindBys(@FindBy(className = "last-name"))
 	public List<WebElement> AllLastNames;
 	

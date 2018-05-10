@@ -4,13 +4,7 @@ package com.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
-
-
 public class LoginPage {
-	
-	public static final String SEARCH_PAGE_URL = "http://bet.unibet.co.uk/search?";
-
 	@FindBy(id = "username")
 	public WebElement userName;
 	

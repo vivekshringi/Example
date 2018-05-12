@@ -31,6 +31,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.File;
 import java.io.IOException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -328,15 +329,58 @@ public class Stepdefs {
 			System.out.println(driver.findElement(By.cssSelector("#finish > h4")).getText());
 		}
 		
-	@Given("^I want to test exit Intent$")
-		public void exitIntent() {
-			driver.navigate().to(URL+"/exit_intent");
-			assertEquals(driver.getTitle(), "The Internet");
-			Actions act = new Actions(driver);
-			act.moveByOffset(0, 0);
-			Alert alert = driver.switchTo().alert();
-			alert.accept();
+	@Given("^I want to test file download$")
+		public void fileDownload() throws InterruptedException {
+		driver.navigate().to(URL+"/download");
+		String Download="/home/Jimmy/Download/";
+		String fileName = "some-file.txt";
+		driver.findElement(By.linkText(fileName)).click();
+		Thread.sleep(4000);
+		File f = new File(Download+fileName);
+		String winHandleBefore = driver.getWindowHandle();
+	    System.out.println(driver.getWindowHandle());   
+		// Perform the click operation that opens new window
+		// Switch to new window opened
+		for(String winHandle : driver.getWindowHandles()){
+		    driver.switchTo().window(winHandle);
 		}
+		//System.out.print(driver.getWindowHandle());  
+		// Perform the actions on new window
+		System.out.println(driver.getWindowHandle());
+		// Close the new window, if that window no more required
+		driver.close();
+		// Switch back to original browser (first window)
+		driver.switchTo().window(winHandleBefore);
+		assertTrue(f.exists());
+		}
+	
+	@Given("^I want to check floating menu$")
+	public void floatingMenu() throws InterruptedException {
+		driver.navigate().to(URL+"/floating_menu");
+		Actions Act = new Actions(driver);
+		for(int i=0;i<100;i++){
+			Act.sendKeys(Keys.ARROW_DOWN).build().perform();
+		}
+		driver.findElement(By.linkText("Home")).click();
+		String actualResult = driver.getCurrentUrl();
+		String expectedResult = URL+"/floating_menu#home";
+		assertEquals(expectedResult, actualResult);
+		Thread.sleep(2000);	
+	}
+	
+	@Given("^I want to check if email is sent$")
+	public void forgotPassword() throws InterruptedException {
+		driver.navigate().to(URL+"/forgot_password");
+		driver.findElement(By.cssSelector("button#form_submit")).click();
+		Thread.sleep(1000);
+		assertEquals("Internal Server Error",driver.findElement(By.tagName("h1")).getText());
+		driver.navigate().back();
+		driver.findElement(By.cssSelector("input#email")).sendKeys("Hello@example.com");
+		driver.findElement(By.cssSelector("button#form_submit")).click();
+		assertEquals("Your e-mail's been sent!",driver.findElement(By.cssSelector("div#content")).getText());
+	}
+	
+	
 
 
 	

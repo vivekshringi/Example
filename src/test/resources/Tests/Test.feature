@@ -74,3 +74,59 @@ Given I want to test Dynamic loading
 @NotWorking
 Scenario: Exit Intent
 Given I want to test exit Intent
+
+@NotWorking
+Scenario: File Download 
+Given I want to test file download
+
+#Scenario: File Download 
+#Given I am on download page 
+#When I selected '<Name of the file>' to download
+#Then I checked <Name of the file> is downloaded at default location
+
+#@NotWorking
+#Scenario: File Upload 
+#Given I am on upload page
+#When I selected '<Name of the file>' to uploaded
+#Then I checked <Name of the file> is uploaded
+
+@Test
+Scenario: Floating Menu 
+Given I want to check floating menu
+
+#Scenario:Forgot Password 
+#Given I am on forgot password page
+#When I entered email address as "xyzh@example.com"
+#Then I got confirmation about email is sent
+
+@underTest
+Scenario: Forgot Password
+Given I want to check if email is sent
+
+
+#Scenario:iFrameTest
+#Given I am on iFrame page
+#When I entered some text, marked bold, italic, formated 
+#Then I validated if text is bold, italic and formated 
+
+#Scenario: Horizontal Slider
+#Given I am on Horizontal slider page
+#When I scrolled slider from left to right 
+
+#Scenario: infinite scrolling 
+#Given I checked infinite scrolling
+
+#Scenario: infinite scrolling 
+#Given I checked infinite scrolling
+
+
+
+
+
+
+
+
+
+
+
+

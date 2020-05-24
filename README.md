@@ -20,19 +20,19 @@ Gecko driver is used to selenium webdriver to support selenium
 - Sorted data table,
 
 ## Project File Structure 
-com.pages
-  HoverPage.java
-  LoginPage.java
-  SortedPage.java
-Tests
-  RunCukesTest.java
-  Stepdefs.java
-Tests
-  Test.feature
-target
-  Reports 
-pom.xml
-ReadMe.md
+-- com.pages
+  --- HoverPage.java
+  --- LoginPage.java
+  --- SortedPage.java
+-- Tests
+  -- RunCukesTest.java
+  --Stepdefs.java
+-- Tests
+  -- Test.feature
+-- target
+  -- Reports 
+-- pom.xml
+-- ReadMe.md
 
 ## File Description
 

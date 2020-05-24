@@ -13,11 +13,11 @@ Firefox browser should be installed (By default my framework support firefox usi
 Gecko driver is used to selenium webdriver to support selenium
 
 ## Tests Covered
-Login success,
-Login failure 1,
-Login failure 2,
-Hover scenario,
-Sorted data table,
+- Login success,
+- Login failure 1,
+- Login failure 2,
+- Hover scenario,
+- Sorted data table,
 
 ## Project File Structure 
 com.pages
